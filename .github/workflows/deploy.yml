@@ -19,7 +19,8 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "index.html"
-        target: "/var/www/html/"
+        target: "/var/www/html/
+        overwrite: true
 
     - name: Restart Apache
       uses: appleboy/ssh-action@v1.0.3
