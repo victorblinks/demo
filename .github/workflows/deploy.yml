@@ -19,7 +19,7 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "index.html"
-        target: "/var/www/html/"
+        target: "/home/ubuntu/"
         overwrite: true
 
     - name: Restart Apache
@@ -29,4 +29,5 @@ jobs:
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          sudo systemctl restart apache2
+         sudo mv /home/ubuntu/index.html /var/www/html/index.html
+         sudo systemctl restart apache2
